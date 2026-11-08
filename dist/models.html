@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Готовые модели классификации активности для Activity Monitor.">
+  <title>Модели классификации — Activity Monitor</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="refinements.css">
+  <link rel="stylesheet" href="models.css">
+  <link rel="stylesheet" href="models-refinements.css">
+  <link rel="stylesheet" href="commerce.css">
+  <script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'page_view',page_type:'models_library'});</script>
+</head>
+<body class="models-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Activity Monitor — на главную"><span class="brand-mark" aria-hidden="true"></span><span>Activity Monitor</span></a>
+    <nav aria-label="Основная навигация">
+      <a href="index.html">О продукте</a>
+      <a class="nav-active" href="models.html">Модели</a>
+      <a href="#training">Дообучение</a>
+      <a href="#categories">Категории</a>
+    </nav>
+    <a class="button button-small" href="index.html#demo">Открыть демо</a>
+  </header>
+
+  <main>
+    <section class="models-hero section">
+      <div class="models-hero-copy reveal">
+        <p class="eyebrow">Классификация под ваш ритм</p>
+        <h1>Выберите, как Activity Monitor понимает ваш день</h1>
+        <p>Balanced уже входит в программу и подходит большинству пользователей. Для более точного анализа рабочих или учебных сценариев можно один раз приобрести профиль Focus или Study.</p>
+        <div class="models-hero-actions"><a class="button" href="#profiles">Смотреть модели</a><a class="button button-ghost" href="#training">Как работает дообучение</a></div>
+      </div>
+      <div class="model-visual reveal" aria-label="Схема классификации активности">
+        <div class="signal-row"><span>Приложения</span><span>Сайты</span><span>Время</span><span>Активность</span></div>
+        <div class="model-core"><small>Activity Monitor</small><strong>3 профиля</strong><span>с разными акцентами анализа</span></div>
+        <div class="result-row"><i style="--c:#2563eb">Работа</i><i style="--c:#7c3aed">Обучение</i><i style="--c:#f97316">Развлечения</i></div>
+      </div>
+    </section>
+
+    <section class="profiles-section section" id="profiles">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Готовые модели</p>
+        <h2>Три варианта под разные задачи</h2>
+        <p>Базовая модель доступна сразу после установки. Дополнительные профили покупаются один раз и добавляются в уже установленную программу.</p>
+      </div>
+      <div class="profiles-grid">
+        <article class="profile-card balanced-card reveal">
+          <div class="profile-top"><span class="profile-icon">B</span><span class="profile-status included">Входит в приложение</span></div>
+          <h3>Balanced</h3>
+          <p class="profile-lead">Универсальная модель для повседневной работы, общения, обучения и отдыха.</p>
+          <div class="profile-for"><span>Подходит для</span><strong>Смешанного рабочего дня без узкой специализации</strong></div>
+          <ul><li>Сбалансированно распознаёт все категории</li><li>Не требует дополнительной настройки</li><li>Уже установлена вместе с Activity Monitor</li></ul>
+          <div class="profile-price"><strong>Бесплатно</strong><span>в составе программы</span></div>
+          <a class="button profile-button" href="index.html#top" data-model="balanced">Скачать Activity Monitor</a>
+        </article>
+
+        <article class="profile-card focus-card reveal">
+          <div class="profile-top"><span class="profile-icon">F</span><span class="profile-status paid">Разовая покупка</span></div>
+          <h3>Focus</h3>
+          <p class="profile-lead">Точнее отделяет сосредоточенную работу от отвлечений и фоновой активности.</p>
+          <div class="profile-for"><span>Подходит для</span><strong>Разработчиков, дизайнеров и удалённых специалистов</strong></div>
+          <ul><li>Больше внимания рабочим инструментам</li><li>Точнее определяет короткие отвлечения</li><li>Подходит для анализа глубоких сессий</li></ul>
+          <div class="profile-price"><strong>199 ₽</strong><span>один раз</span></div>
+          <button class="button profile-button purchase-button" type="button" data-model="Focus" data-price="199 ₽">Купить Focus</button>
+        </article>
+
+        <article class="profile-card study-card reveal">
+          <div class="profile-top"><span class="profile-icon">S</span><span class="profile-status paid">Разовая покупка</span></div>
+          <h3>Study</h3>
+          <p class="profile-lead">Лучше учитывает учебные материалы, исследования и работу над заданиями.</p>
+          <div class="profile-for"><span>Подходит для</span><strong>Студентов, преподавателей и самостоятельного обучения</strong></div>
+          <ul><li>Выделяет учебные сайты и документы</li><li>Учитывает исследовательские сценарии</li><li>Помогает оценить регулярность занятий</li></ul>
+          <div class="profile-price"><strong>199 ₽</strong><span>один раз</span></div>
+          <button class="button profile-button purchase-button" type="button" data-model="Study" data-price="199 ₽">Купить Study</button>
+        </article>
+      </div>
+      <div class="included-note reveal"><span>Как это работает</span><p>Balanced устанавливается вместе с программой. После покупки Focus или Study ссылка на файл модели и короткая инструкция приходят на указанную электронную почту.</p></div>
+    </section>
+
+    <section class="quick-start section">
+      <div class="section-heading reveal"><p class="eyebrow">Установка модели</p><h2>Добавление занимает несколько минут</h2></div>
+      <ol class="install-steps">
+        <li class="reveal"><b>01</b><div><h3>Выберите модель</h3><p>Откройте карточку Focus или Study, укажите электронную почту и завершите разовую покупку.</p></div></li>
+        <li class="reveal"><b>02</b><div><h3>Получите файл</h3><p>Мы отправим на почту ссылку на модель и инструкцию. Повторно оплачивать её не потребуется.</p></div></li>
+        <li class="reveal"><b>03</b><div><h3>Импортируйте модель</h3><p>В Activity Monitor откройте «Настройки → Модели», нажмите «Импортировать» и выберите загруженный файл.</p></div></li>
+        <li class="reveal"><b>04</b><div><h3>Активируйте профиль</h3><p>Выберите новую модель в списке. Вернуться к встроенной Balanced можно в любой момент.</p></div></li>
+      </ol>
+      <div class="fallback-note reveal"><span>Мониторинг не остановится</span><p>Если модель временно недоступна или не уверена в результате, Activity Monitor продолжает классификацию по встроенным правилам. Статистика не прерывается, а категорию всегда можно исправить вручную.</p></div>
+    </section>
+
+    <section class="training-section section" id="training">
+      <div class="training-copy reveal">
+        <p class="eyebrow">Персональная модель</p>
+        <h2>Дообучите классификацию под свои приложения</h2>
+        <p>В комплект Activity Monitor входит отдельная утилита Model Trainer. Она использует исправленные вами категории, чтобы лучше распознавать привычные программы, сайты и рабочие сценарии.</p>
+        <button class="button training-button" type="button">Открыть Model Trainer</button>
+      </div>
+      <div class="training-flow reveal">
+        <div><b>1</b><span><strong>Используйте программу</strong>Activity Monitor собирает историю активности на вашем компьютере.</span></div>
+        <div><b>2</b><span><strong>Исправьте неточности</strong>Укажите правильные категории там, где автоматическая классификация ошиблась.</span></div>
+        <div><b>3</b><span><strong>Запустите обучение</strong>Model Trainer создаст персональную версию модели на основе ваших примеров.</span></div>
+        <div><b>4</b><span><strong>Подключите результат</strong>Новая модель появится в настройках Activity Monitor.</span></div>
+      </div>
+    </section>
+
+    <section class="categories-section section" id="categories">
+      <div class="section-heading reveal"><p class="eyebrow">Результат классификации</p><h2>Шесть понятных категорий</h2><p>Каждая модель распределяет активность по одинаковому набору категорий, поэтому статистика остаётся понятной при смене профиля.</p></div>
+      <div class="category-list reveal">
+        <div style="--c:#2563eb"><b>Работа</b><span>IDE, документы, файлы и рабочие приложения</span></div>
+        <div style="--c:#7c3aed"><b>Обучение</b><span>Курсы, статьи, учебные материалы и исследования</span></div>
+        <div style="--c:#16a34a"><b>Общение</b><span>Мессенджеры, почта, чаты и звонки</span></div>
+        <div style="--c:#f97316"><b>Развлечения</b><span>Видео, музыка, игры и развлекательные сайты</span></div>
+        <div style="--c:#64748b"><b>Система</b><span>Проводник, рабочий стол и системные окна</span></div>
+        <div style="--c:#334155"><b>Неизвестно</b><span>Новые или ещё не распознанные активности</span></div>
+      </div>
+    </section>
+
+    <section class="model-footer-cta section reveal"><p class="eyebrow">Начните с базовой версии</p><h2>Установите Activity Monitor и попробуйте Balanced бесплатно.</h2><a class="button" href="index.html#top">Скачать приложение</a></section>
+  </main>
+
+  <dialog class="purchase-dialog" id="purchase-dialog" aria-labelledby="purchase-title">
+    <button class="purchase-close" type="button" aria-label="Закрыть окно">×</button>
+    <p class="eyebrow">Разовая покупка</p>
+    <h2 id="purchase-title">Модель Focus</h2>
+    <p class="purchase-copy">После оплаты мы отправим ссылку на модель и инструкцию по установке на вашу почту.</p>
+    <div class="purchase-summary"><span>Вы выбрали</span><strong id="purchase-model">Focus</strong><span>Стоимость</span><strong id="purchase-price">199 ₽</strong></div>
+    <form id="purchase-form">
+      <label class="purchase-label" for="purchase-email">Электронная почта</label>
+      <input id="purchase-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+      <label class="consent-row"><input type="checkbox" required><span>Согласен получить ссылку на модель и инструкцию по электронной почте</span></label>
+      <button class="button purchase-submit" id="purchase-submit" type="submit">Перейти к оплате — 199 ₽</button>
+      <p class="demo-payment-note">Демонстрационная форма: платёжный сервис и отправка писем пока не подключены.</p>
+      <p class="purchase-status" id="purchase-status" role="status"></p>
+    </form>
+  </dialog>
+
+  <footer><a class="brand" href="index.html"><span class="brand-mark"></span><span>Activity Monitor</span></a><p>Модели классификации активности</p></footer>
+  <script src="models.js"></script>
+</body>
+</html>

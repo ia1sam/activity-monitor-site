@@ -6,6 +6,7 @@
   <meta name="description" content="Activity Monitor — локальная система мониторинга и классификации активности за компьютером.">
   <title>Activity Monitor — куда уходит время за компьютером</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="refinements.css">
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'page_view', page_type: 'product_landing' });
@@ -20,6 +21,7 @@
     <nav aria-label="Основная навигация">
       <a href="#how" data-track="nav_how">Как работает</a>
       <a href="#demo" data-track="nav_demo">Демонстрация</a>
+      <a href="models.html" data-track="nav_models">Модели</a>
       <a href="#privacy" data-track="nav_privacy">Данные</a>
     </nav>
     <a class="button button-small" href="#demo" data-track="header_demo">Посмотреть демо</a>
@@ -29,7 +31,7 @@
     <section class="hero section">
       <div class="hero-copy reveal">
         <p class="eyebrow">Локальный мониторинг активности</p>
-        <h1>Поймите, куда уходит время за компьютером</h1>
+        <h1>Поймите, куда<br>уходит время за<br>компьютером</h1>
         <p class="hero-lead">Программа автоматически фиксирует активные приложения и сайты, относит действия к категориям и показывает понятную статистику. Без жёстких блокировок и ручного ведения дневника.</p>
         <div class="hero-actions">
           <a class="button" href="#demo" data-track="hero_demo">Открыть демонстрацию</a>
@@ -125,12 +127,12 @@
       <div class="section-heading reveal">
         <p class="eyebrow">Реальная программа</p>
         <h2>Интерфейс, который уже работает</h2>
-        <p>Скриншоты взяты из реализованной версии дипломного проекта.</p>
+        <p>Рабочие экраны приложения: история активности, аналитика и экспорт отчётов.</p>
       </div>
       <div class="screens-grid">
-        <figure class="screen-main reveal"><img src="assets/statistics.png" alt="Вкладка статистики Activity Monitor с диаграммами, таблицами процессов и доменов" loading="lazy"><figcaption>Статистика за выбранный период</figcaption></figure>
-        <figure class="reveal"><img src="assets/activity.png" alt="История активности в Activity Monitor" loading="lazy"><figcaption>История и ручная корректировка категорий</figcaption></figure>
-        <figure class="reveal"><img src="assets/report.png" alt="Экспорт отчёта в Activity Monitor" loading="lazy"><figcaption>Экспорт PDF, CSV и JSON</figcaption></figure>
+        <figure class="screen-main reveal"><button class="image-zoom" type="button" data-lightbox-src="assets/statistics.png" data-lightbox-caption="Статистика за выбранный период"><img src="assets/statistics.png" alt="Вкладка статистики Activity Monitor с диаграммами, таблицами процессов и доменов" loading="lazy"><span>Увеличить</span></button><figcaption>Статистика за выбранный период</figcaption></figure>
+        <figure class="reveal"><button class="image-zoom" type="button" data-lightbox-src="assets/activity.png" data-lightbox-caption="История и ручная корректировка категорий"><img src="assets/activity.png" alt="История активности в Activity Monitor" loading="lazy"><span>Увеличить</span></button><figcaption>История и ручная корректировка категорий</figcaption></figure>
+        <figure class="reveal"><button class="image-zoom" type="button" data-lightbox-src="assets/report.png" data-lightbox-caption="Экспорт PDF, CSV и JSON"><img src="assets/report.png" alt="Экспорт отчёта в Activity Monitor" loading="lazy"><span>Увеличить</span></button><figcaption>Экспорт PDF, CSV и JSON</figcaption></figure>
       </div>
     </section>
 
@@ -148,14 +150,29 @@
     </section>
 
     <section class="compare-section section">
-      <div class="section-heading reveal"><p class="eyebrow">Зачем отдельная система</p><h2>Больше контекста, чем у обычного таймера</h2></div>
-      <div class="comparison reveal">
-        <div class="compare-head"><span></span><b>Обычный таймер</b><b>Activity Monitor</b></div>
-        <div><span>Учитывает длительность</span><i>Да</i><strong>Да</strong></div>
-        <div><span>Работает автоматически</span><i>Нет</i><strong>Да</strong></div>
-        <div><span>Различает виды активности</span><i>Нет</i><strong>6 категорий</strong></div>
-        <div><span>Показывает процессы и домены</span><i>Нет</i><strong>Да</strong></div>
-        <div><span>Сравнивает периоды</span><i>Ограниченно</i><strong>Да</strong></div>
+      <div class="section-heading reveal"><p class="eyebrow">Зачем отдельная система</p><h2>Таймер считает минуты. Activity Monitor объясняет день.</h2></div>
+      <div class="compare-cards reveal">
+        <article class="compare-card timer-card">
+          <div class="compare-card-heading"><span class="compare-icon timer-icon" aria-hidden="true"></span><div><p>Обычный таймер</p><h3>Один интервал</h3></div></div>
+          <ul>
+            <li><span>Длительность</span><b>Есть</b></li>
+            <li><span>Запуск</span><b>Вручную</b></li>
+            <li><span>Контекст активности</span><b>Нет</b></li>
+            <li><span>История по приложениям</span><b>Нет</b></li>
+            <li><span>Сравнение периодов</span><b>Ограниченно</b></li>
+          </ul>
+        </article>
+        <div class="compare-divider" aria-hidden="true"><span>и</span></div>
+        <article class="compare-card monitor-card">
+          <div class="compare-card-heading"><span class="compare-icon monitor-icon" aria-hidden="true"></span><div><p>Activity Monitor</p><h3>Картина всего дня</h3></div></div>
+          <ul>
+            <li><span>Длительность</span><b>Считается автоматически</b></li>
+            <li><span>Запуск</span><b>Фоновый мониторинг</b></li>
+            <li><span>Контекст активности</span><b>6 категорий</b></li>
+            <li><span>История по приложениям</span><b>Процессы и домены</b></li>
+            <li><span>Сравнение периодов</span><b>День, неделя, месяц</b></li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -169,7 +186,12 @@
     </section>
   </main>
 
-  <footer><a class="brand" href="#top"><span class="brand-mark"></span><span>Activity Monitor</span></a><p>Учебный проект. Брянск, 2026</p></footer>
+  <footer><a class="brand" href="#top"><span class="brand-mark"></span><span>Activity Monitor</span></a><p>Локальная аналитика активности</p></footer>
+  <dialog class="lightbox" id="image-lightbox" aria-label="Увеличенный скриншот">
+    <button class="lightbox-close" type="button" aria-label="Закрыть">×</button>
+    <img id="lightbox-image" src="" alt="">
+    <p id="lightbox-caption"></p>
+  </dialog>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,11 @@
+.models-hero h1,
+.training-copy h2,
+.model-footer-cta h2 {
+  line-height: 1.28;
+}
+
+@media (max-width: 680px) {
+  .models-hero h1 {
+    line-height: 1.28;
+  }
+}

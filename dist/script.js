@@ -14,4 +14,16 @@ document.querySelector('#category-select').addEventListener('change',e=>{track('
 document.querySelector('#compare-button').addEventListener('click',()=>{track('compare_periods_open',{source:'interactive_demo'});const el=document.querySelector('#insight-text');el.textContent='По сравнению с предыдущим периодом доля непрерывных развлекательных сессий снизилась на 8%. Это демонстрационный вывод.';document.querySelector('#compare-button').textContent='Сравнение открыто'});
 ['download-button','footer-download'].forEach(id=>document.querySelector('#'+id).addEventListener('click',()=>{track('download_attempt',{platform:'windows',availability:'not_connected'});document.querySelector('#download-note').textContent='Загрузка будет подключена после выбора файла релиза.';document.querySelector('#download-note').scrollIntoView({behavior:'smooth',block:'center'})}));
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const lightbox=document.querySelector('#image-lightbox');
+const lightboxImage=document.querySelector('#lightbox-image');
+const lightboxCaption=document.querySelector('#lightbox-caption');
+document.querySelectorAll('[data-lightbox-src]').forEach(button=>button.addEventListener('click',()=>{
+  lightboxImage.src=button.dataset.lightboxSrc;
+  lightboxImage.alt=button.querySelector('img')?.alt||'Скриншот Activity Monitor';
+  lightboxCaption.textContent=button.dataset.lightboxCaption||'';
+  lightbox.showModal();
+  track('screenshot_open',{screen_name:button.dataset.lightboxCaption||'unknown'});
+}));
+document.querySelector('.lightbox-close').addEventListener('click',()=>lightbox.close());
+lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close()});
 render();
