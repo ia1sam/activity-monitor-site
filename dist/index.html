@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Activity Monitor — локальная система мониторинга и классификации активности за компьютером.">
+  <title>Activity Monitor — куда уходит время за компьютером</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'page_view', page_type: 'product_landing' });
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" data-track="nav_logo" aria-label="Activity Monitor — на главную">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Activity Monitor</span>
+    </a>
+    <nav aria-label="Основная навигация">
+      <a href="#how" data-track="nav_how">Как работает</a>
+      <a href="#demo" data-track="nav_demo">Демонстрация</a>
+      <a href="#privacy" data-track="nav_privacy">Данные</a>
+    </nav>
+    <a class="button button-small" href="#demo" data-track="header_demo">Посмотреть демо</a>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Локальный мониторинг активности</p>
+        <h1>Поймите, куда уходит время за компьютером</h1>
+        <p class="hero-lead">Программа автоматически фиксирует активные приложения и сайты, относит действия к категориям и показывает понятную статистику. Без жёстких блокировок и ручного ведения дневника.</p>
+        <div class="hero-actions">
+          <a class="button" href="#demo" data-track="hero_demo">Открыть демонстрацию</a>
+          <button class="button button-ghost" type="button" id="download-button" data-track="download_click">Скачать приложение</button>
+        </div>
+        <p class="availability" id="download-note" role="status">Учебная версия для Windows. Публичная загрузка пока не подключена.</p>
+      </div>
+      <div class="hero-visual reveal" aria-label="Демонстрационная сводка Activity Monitor">
+        <div class="window-bar"><span></span><span></span><span></span><b>Сегодня</b></div>
+        <div class="mini-dashboard">
+          <div class="mini-main">
+            <p>Время по категориям</p>
+            <div class="donut" aria-label="Работа 46%, обучение 27%, развлечения 17%, общение 10%"></div>
+            <strong>6 ч 42 мин</strong>
+            <span>за компьютером</span>
+          </div>
+          <div class="mini-bars" aria-hidden="true">
+            <div><span>Работа</span><i style="--w:78%;--c:#2563eb"></i><b>3:05</b></div>
+            <div><span>Обучение</span><i style="--w:56%;--c:#7c3aed"></i><b>1:49</b></div>
+            <div><span>Развлечения</span><i style="--w:35%;--c:#f97316"></i><b>1:08</b></div>
+            <div><span>Общение</span><i style="--w:20%;--c:#16a34a"></i><b>0:40</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="problem section section-narrow reveal">
+      <p class="eyebrow">Знакомая ситуация</p>
+      <h2>Весь день были заняты, а важные задачи всё ещё не закончены</h2>
+      <p>Проблема часто становится заметна только вечером. Activity Monitor собирает факты в фоне и помогает увидеть длительные перерывы, переключения между приложениями и распределение времени по категориям.</p>
+      <div class="quote-line">
+        <span>Работа над задачей</span><i></i><span>Короткий перерыв</span><i></i><span>YouTube</span><i></i><strong>Перерыв затянулся</strong>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Как работает система</p>
+        <h2>От событий на компьютере до понятной картины дня</h2>
+      </div>
+      <div class="process-grid">
+        <article class="process-step reveal"><b>01</b><h3>Собирает контекст</h3><p>Фиксирует активное окно, процесс, домен браузера, длительность и признаки активности клавиатуры и мыши.</p></article>
+        <article class="process-step reveal"><b>02</b><h3>Определяет категорию</h3><p>Модель XGBoost относит запись к работе, обучению, общению, развлечениям, системе или бездействию.</p></article>
+        <article class="process-step reveal"><b>03</b><h3>Показывает результат</h3><p>Строит распределение времени, динамику по периоду, топ процессов и доменов. Ошибочную категорию можно исправить.</p></article>
+      </div>
+    </section>
+
+    <section class="demo-section section" id="demo">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Интерактивная демонстрация</p>
+        <h2>Посмотрите на день с разных сторон</h2>
+        <p>Данные ниже демонстрационные. Переключайте период и категорию: каждое действие уже подготовлено для последующего анализа в GA4.</p>
+      </div>
+      <div class="demo-shell reveal">
+        <div class="demo-toolbar">
+          <div class="segmented" role="group" aria-label="Период статистики">
+            <button class="active" data-period="day">День</button>
+            <button data-period="week">Неделя</button>
+            <button data-period="month">Месяц</button>
+          </div>
+          <label>Категория
+            <select id="category-select">
+              <option value="all">Все категории</option>
+              <option value="work">Работа</option>
+              <option value="learning">Обучение</option>
+              <option value="entertainment">Развлечения</option>
+              <option value="communication">Общение</option>
+            </select>
+          </label>
+        </div>
+        <div class="demo-summary">
+          <div><span>Учтено времени</span><strong id="total-time">6 ч 42 мин</strong></div>
+          <div><span>Самая долгая категория</span><strong id="top-category">Работа</strong></div>
+          <div><span>Длинный перерыв</span><strong id="long-break">38 мин</strong></div>
+        </div>
+        <div class="demo-content">
+          <div class="chart-panel">
+            <div class="chart-title"><h3>Распределение времени</h3><span id="period-label">Сегодня</span></div>
+            <div class="large-donut" id="demo-donut"><div><strong id="focus-share">46%</strong><span>работа</span></div></div>
+            <ul class="legend" id="legend"></ul>
+          </div>
+          <div class="timeline-panel">
+            <div class="chart-title"><h3>Активность по часам</h3><span>минуты</span></div>
+            <div class="timeline" id="timeline" aria-label="График активности по часам"></div>
+            <div class="insight"><span>Наблюдение</span><p id="insight-text">Самый длинный развлекательный период начался после 17:00. Мягкое напоминание могло бы обозначить точку возврата.</p></div>
+          </div>
+        </div>
+        <button class="text-action" id="compare-button" type="button">Сравнить с предыдущим периодом</button>
+      </div>
+    </section>
+
+    <section class="screenshot-section section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Реальная программа</p>
+        <h2>Интерфейс, который уже работает</h2>
+        <p>Скриншоты взяты из реализованной версии дипломного проекта.</p>
+      </div>
+      <div class="screens-grid">
+        <figure class="screen-main reveal"><img src="assets/statistics.png" alt="Вкладка статистики Activity Monitor с диаграммами, таблицами процессов и доменов" loading="lazy"><figcaption>Статистика за выбранный период</figcaption></figure>
+        <figure class="reveal"><img src="assets/activity.png" alt="История активности в Activity Monitor" loading="lazy"><figcaption>История и ручная корректировка категорий</figcaption></figure>
+        <figure class="reveal"><img src="assets/report.png" alt="Экспорт отчёта в Activity Monitor" loading="lazy"><figcaption>Экспорт PDF, CSV и JSON</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="privacy-section section" id="privacy">
+      <div class="privacy-copy reveal">
+        <p class="eyebrow">Контроль данных</p>
+        <h2>История хранится локально</h2>
+        <p>Приложение использует локальную базу SQLite. Сбор можно остановить в любой момент, категории и параметры мониторинга доступны в настройках, а отчёт экспортируется только по команде пользователя.</p>
+      </div>
+      <div class="privacy-list reveal">
+        <div><b>01</b><span><strong>Локальная база</strong>Данные не требуют внешнего сервера.</span></div>
+        <div><b>02</b><span><strong>Видимый статус</strong>Пользователь видит, запущен ли мониторинг.</span></div>
+        <div><b>03</b><span><strong>Ручная проверка</strong>Категорию активности можно исправить.</span></div>
+      </div>
+    </section>
+
+    <section class="compare-section section">
+      <div class="section-heading reveal"><p class="eyebrow">Зачем отдельная система</p><h2>Больше контекста, чем у обычного таймера</h2></div>
+      <div class="comparison reveal">
+        <div class="compare-head"><span></span><b>Обычный таймер</b><b>Activity Monitor</b></div>
+        <div><span>Учитывает длительность</span><i>Да</i><strong>Да</strong></div>
+        <div><span>Работает автоматически</span><i>Нет</i><strong>Да</strong></div>
+        <div><span>Различает виды активности</span><i>Нет</i><strong>6 категорий</strong></div>
+        <div><span>Показывает процессы и домены</span><i>Нет</i><strong>Да</strong></div>
+        <div><span>Сравнивает периоды</span><i>Ограниченно</i><strong>Да</strong></div>
+      </div>
+    </section>
+
+    <section class="final-cta section reveal">
+      <p class="eyebrow">Осознанный контроль без запретов</p>
+      <h2>Сначала увидеть картину дня. Затем решить, что менять.</h2>
+      <div class="hero-actions">
+        <a class="button" href="#demo" data-track="footer_demo">Вернуться к демонстрации</a>
+        <button class="button button-ghost light" type="button" data-track="footer_download" id="footer-download">Скачать приложение</button>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#top"><span class="brand-mark"></span><span>Activity Monitor</span></a><p>Учебный проект. Брянск, 2026</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
