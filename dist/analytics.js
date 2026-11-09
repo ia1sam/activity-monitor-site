@@ -44,3 +44,14 @@ window.sendAnalyticsEvent = function sendAnalyticsEvent(eventName, parameters = 
     window.ym(window.ACTIVITY_MONITOR_METRICA_ID, 'reachGoal', goalName, parameters);
   }
 };
+
+let scroll90Sent = false;
+window.addEventListener('scroll', () => {
+  if (scroll90Sent) return;
+  const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+  if (documentHeight <= 0) return;
+  if (window.scrollY / documentHeight >= 0.9) {
+    scroll90Sent = true;
+    window.sendAnalyticsEvent('scroll_90', { page_path: window.location.pathname });
+  }
+}, { passive: true });

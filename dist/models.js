@@ -29,6 +29,8 @@ const purchaseModel = document.querySelector('#purchase-model');
 const purchasePrice = document.querySelector('#purchase-price');
 const purchaseSubmit = document.querySelector('#purchase-submit');
 const purchaseStatus = document.querySelector('#purchase-status');
+const purchaseEmail = document.querySelector('#purchase-email');
+let checkoutFormStarted = false;
 
 document.querySelector('[data-model="balanced"]')?.addEventListener('click', () => {
   track('download_click', { model_profile: 'balanced', placement: 'models_page' });
@@ -47,8 +49,9 @@ document.querySelectorAll('.purchase-button').forEach((button) => {
     purchaseSubmit.textContent = `Перейти к оплате — ${price}`;
     purchaseForm.reset();
     purchaseStatus.textContent = '';
+    checkoutFormStarted = false;
     purchaseDialog.showModal();
-    document.querySelector('#purchase-email').focus();
+    purchaseEmail.focus();
 
     window.dataLayer.push({ ecommerce: null });
     track('add_to_cart', {
@@ -66,6 +69,13 @@ document.querySelector('.purchase-close')?.addEventListener('click', () => {
 
 purchaseDialog?.addEventListener('click', (event) => {
   if (event.target === purchaseDialog) purchaseDialog.close();
+});
+
+purchaseEmail?.addEventListener('input', () => {
+  if (checkoutFormStarted) return;
+  checkoutFormStarted = true;
+  const model = purchaseDialog.dataset.model || 'unknown';
+  track('checkout_form_start', { model_profile: model.toLowerCase() });
 });
 
 purchaseForm?.addEventListener('submit', (event) => {
