@@ -27,6 +27,20 @@ window.sendAnalyticsEvent = function sendAnalyticsEvent(eventName, parameters = 
   window.dataLayer.push({ event: eventName, ...parameters });
 
   if (typeof window.ym === 'function') {
-    window.ym(window.ACTIVITY_MONITOR_METRICA_ID, 'reachGoal', eventName, parameters);
+    let goalName = eventName;
+
+    if (eventName === 'download_attempt') goalName = 'download_click';
+    if (eventName === 'compare_periods_open') goalName = 'period_compare';
+    if (eventName === 'model_trainer_open_demo') goalName = 'trainer_open';
+
+    if (eventName === 'cta_click') {
+      const placement = parameters.cta_name || '';
+      if (placement.includes('demo')) goalName = 'demo_open';
+      else if (placement.includes('download')) goalName = 'download_click';
+      else if (placement === 'nav_models') goalName = 'models_open';
+      else goalName = 'navigation_click';
+    }
+
+    window.ym(window.ACTIVITY_MONITOR_METRICA_ID, 'reachGoal', goalName, parameters);
   }
 };
