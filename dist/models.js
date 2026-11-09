@@ -1,7 +1,25 @@
 window.dataLayer = window.dataLayer || [];
 
 function track(event, params = {}) {
+  if (typeof window.sendAnalyticsEvent === 'function') {
+    window.sendAnalyticsEvent(event, params);
+    return;
+  }
   window.dataLayer.push({ event, ...params });
+}
+
+function ecommerceData(model) {
+  return {
+    currency: 'RUB',
+    value: 199,
+    items: [{
+      item_id: `${model.toLowerCase()}_model`,
+      item_name: `Activity Monitor ${model}`,
+      item_category: 'Classification model',
+      price: 199,
+      quantity: 1
+    }]
+  };
 }
 
 const purchaseDialog = document.querySelector('#purchase-dialog');
@@ -13,13 +31,14 @@ const purchaseSubmit = document.querySelector('#purchase-submit');
 const purchaseStatus = document.querySelector('#purchase-status');
 
 document.querySelector('[data-model="balanced"]')?.addEventListener('click', () => {
-  track('app_download_from_models', { model_profile: 'balanced' });
+  track('download_click', { model_profile: 'balanced', placement: 'models_page' });
 });
 
 document.querySelectorAll('.purchase-button').forEach((button) => {
   button.addEventListener('click', () => {
     const model = button.dataset.model;
     const price = button.dataset.price;
+    const ecommerce = ecommerceData(model);
 
     purchaseDialog.dataset.model = model;
     purchaseTitle.textContent = `Модель ${model}`;
@@ -31,7 +50,13 @@ document.querySelectorAll('.purchase-button').forEach((button) => {
     purchaseDialog.showModal();
     document.querySelector('#purchase-email').focus();
 
-    track('model_purchase_open', { model_profile: model.toLowerCase() });
+    window.dataLayer.push({ ecommerce: null });
+    track('add_to_cart', {
+      model_profile: model.toLowerCase(),
+      order_price: 199,
+      currency: 'RUB',
+      ecommerce
+    });
   });
 });
 
@@ -46,13 +71,20 @@ purchaseDialog?.addEventListener('click', (event) => {
 purchaseForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   const model = purchaseDialog.dataset.model || 'unknown';
+  const ecommerce = model === 'unknown' ? undefined : ecommerceData(model);
 
-  track('model_purchase_demo_submit', { model_profile: model.toLowerCase() });
+  window.dataLayer.push({ ecommerce: null });
+  track('begin_checkout', {
+    model_profile: model.toLowerCase(),
+    order_price: 199,
+    currency: 'RUB',
+    ...(ecommerce ? { ecommerce } : {})
+  });
   purchaseStatus.textContent = 'Демонстрация завершена: платёж и отправка письма не выполняются.';
 });
 
 document.querySelector('.training-button')?.addEventListener('click', () => {
-  track('model_trainer_open_demo');
+  track('trainer_open');
 });
 
 const observer = new IntersectionObserver((entries) => {

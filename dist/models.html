@@ -11,8 +11,10 @@
   <link rel="stylesheet" href="models-refinements.css">
   <link rel="stylesheet" href="commerce.css">
   <script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'page_view',page_type:'models_library'});</script>
+  <script src="analytics.js"></script>
 </head>
 <body class="models-page">
+  <noscript><div><img src="https://mc.yandex.ru/watch/114148858" style="position:absolute;left:-9999px" alt=""></div></noscript>
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Activity Monitor — на главную"><span class="brand-mark" aria-hidden="true"></span><span>Activity Monitor</span></a>
     <nav aria-label="Основная навигация">
@@ -128,7 +130,7 @@
     <div class="purchase-summary"><span>Вы выбрали</span><strong id="purchase-model">Focus</strong><span>Стоимость</span><strong id="purchase-price">199 ₽</strong></div>
     <form id="purchase-form">
       <label class="purchase-label" for="purchase-email">Электронная почта</label>
-      <input id="purchase-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+      <input class="ym-disable-keys" id="purchase-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
       <label class="consent-row"><input type="checkbox" required><span>Согласен получить ссылку на модель и инструкцию по электронной почте</span></label>
       <button class="button purchase-submit" id="purchase-submit" type="submit">Перейти к оплате — 199 ₽</button>
       <p class="demo-payment-note">Демонстрационная форма: платёжный сервис и отправка писем пока не подключены.</p>
