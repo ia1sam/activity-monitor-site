@@ -21,6 +21,7 @@ window.ym(114148858, 'init', {
 });
 
 window.ACTIVITY_MONITOR_METRICA_ID = 114148858;
+window.ACTIVITY_MONITOR_GA4_ID = 'G-ETXVKWM0HR';
 
 window.sendAnalyticsEvent = function sendAnalyticsEvent(eventName, parameters = {}) {
   let goalName = eventName;
@@ -42,6 +43,17 @@ window.sendAnalyticsEvent = function sendAnalyticsEvent(eventName, parameters = 
 
   if (typeof window.ym === 'function') {
     window.ym(window.ACTIVITY_MONITOR_METRICA_ID, 'reachGoal', goalName, parameters);
+  }
+
+  if (typeof window.gtag === 'function' && goalName !== 'scroll_90') {
+    const ga4Parameters = { ...parameters };
+
+    if (parameters.ecommerce) {
+      Object.assign(ga4Parameters, parameters.ecommerce);
+      delete ga4Parameters.ecommerce;
+    }
+
+    window.gtag('event', goalName, ga4Parameters);
   }
 };
 
