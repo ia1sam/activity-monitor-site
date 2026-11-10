@@ -23,24 +23,24 @@ window.ym(114148858, 'init', {
 window.ACTIVITY_MONITOR_METRICA_ID = 114148858;
 
 window.sendAnalyticsEvent = function sendAnalyticsEvent(eventName, parameters = {}) {
+  let goalName = eventName;
+
+  if (eventName === 'download_attempt') goalName = 'download_click';
+  if (eventName === 'compare_periods_open') goalName = 'period_compare';
+  if (eventName === 'model_trainer_open_demo') goalName = 'trainer_open';
+
+  if (eventName === 'cta_click') {
+    const placement = parameters.cta_name || '';
+    if (placement.includes('demo')) goalName = 'demo_open';
+    else if (placement.includes('download')) goalName = 'download_click';
+    else if (placement === 'nav_models') goalName = 'models_open';
+    else goalName = 'navigation_click';
+  }
+
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: eventName, ...parameters });
+  window.dataLayer.push({ event: goalName, ...parameters });
 
   if (typeof window.ym === 'function') {
-    let goalName = eventName;
-
-    if (eventName === 'download_attempt') goalName = 'download_click';
-    if (eventName === 'compare_periods_open') goalName = 'period_compare';
-    if (eventName === 'model_trainer_open_demo') goalName = 'trainer_open';
-
-    if (eventName === 'cta_click') {
-      const placement = parameters.cta_name || '';
-      if (placement.includes('demo')) goalName = 'demo_open';
-      else if (placement.includes('download')) goalName = 'download_click';
-      else if (placement === 'nav_models') goalName = 'models_open';
-      else goalName = 'navigation_click';
-    }
-
     window.ym(window.ACTIVITY_MONITOR_METRICA_ID, 'reachGoal', goalName, parameters);
   }
 };
